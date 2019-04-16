@@ -9,6 +9,19 @@
 	  gtag('js', new Date());
 
 	  gtag('config', 'UA-129508064-2');
+
+	  	var facts = [
+	  'I recently ran the Big House 5K!',
+	  'I have been playing the piano since I was 5.',
+	  'I will be interning in Santa Barbara this summer at Sonos.',
+	  'I participated in an Alternative Spring Break trip in the By Area.',
+	  'I completed over 600 hours of community service as an undergrad.'
+	  ]
+
+	function newFact() {
+		var randomNumber = Math.floor(Math.random() * (facts.length));
+	  	document.getElementById('randomFact').innerHTML = facts[randomNumber];
+	}
 	</script>
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" href="images/logo.png"/>
@@ -63,6 +76,15 @@
 
 </div>
 </div>
+
+<div class="callout">
+  <div class="callout-header">Random Facts</div>
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <div class="callout-container">
+  	<p id = "randomFact"></p>
+	<button onclick="newFact()" class="button">Click for a Fact!</button>
+  </div>
+</div>
 </main>
 
 	<footer>
@@ -77,7 +99,6 @@
 
 	// Get the navbar
 	var navbar = document.getElementById("navbar");
-
 	// Get the offset position of the navbar
 	var sticky = navbar.offsetTop;
 

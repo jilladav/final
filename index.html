@@ -31,7 +31,7 @@
         </ul>
     </nav>
 
-    <h1>Jill Davidson </h1>
+    <h1 id="typewriter"></h1>
 </header>
 
 <main id = "main">
@@ -43,24 +43,39 @@
 
 	<p>I’m a first year master’s student at the University of Michigan School of Information focusing in UX research and design. My goal is to be a part of the creation of products that make a positive impact on the lives of others. <a href = "about.html"> Learn more about me</a> or view some of my projects below! </p>
 
-	<div class = "pair">
-	<h2>Interaction Design: ParkBlue</h2> 
-	<div class = "item">
-		<img src = "images/parkblue.jpg" alt = "park blue home screen"/>
-		<p>In this course project, I chose a problem that I felt to be very prevalent on the University of Michigan's campus: parking. Throughout the course, I went through the interaction design process, including a competitive analysis, sketches, personas, storymapping, and low- and high- fidelity prototyping. </br> 
-		<a href = "interaction.html"> LEARN MORE</a> </p>
+	<button class="accordion">Interaction Design: ParkBlue</button>
+		<div class="panel">
+			<div class = "pair">
+			<h2>Interaction Design: ParkBlue</h2> 
+				<div class = "item">
+				<img src = "images/parkblue.jpg" alt = "park blue home screen"/>
+				<p>In this course project, I chose a problem that I felt to be very prevalent on the University of Michigan's campus: parking. Throughout the course, I went through the interaction design process, including a competitive analysis, sketches, personas, storymapping, and low- and high- fidelity prototyping. <br> 
+			<a href = "interaction.html"> LEARN MORE</a> </p>
+		</div>
 	</div>
 </div>
 
+
+<button class="accordion">Contextual Inquiry: Information Organization</button>
+		<div class="panel">
 <div class = "pair">
 	<h2>Contextual Inquiry: Information Organization</h2> 
 	<div class = "item">
 		<img src = "images/affinity_wall_cover.jpg" alt = "affinity wall photo"/>
 		<p>Working with a team of my classmates, we tackled the challenge of knowledge management for a client with a large amount of data. We conducted interviews and performed qualitative data analysis in order to give our client recommendations on how to best organize their data.
-		</br> <a href = "consulting.html"> LEARN MORE </a> </p>
+		<br> <a href = "consulting.html"> LEARN MORE </a> </p>
 	</div>
 	</div>
 </div>
+</div>
+</div>
+
+<div class="callout">
+  <div class="callout-header">Callout Header</div>
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+  <div class="callout-container">
+    <p>Some text...</p>
+  </div>
 </div>
 
 </main>
@@ -71,5 +86,39 @@
 		<p> <i class="fas fa-phone-square" aria-hidden = "true"></i> 248-207-2138</p>
 		<p><a href = https://www.linkedin.com/in/jill-davidson/ aria-label="Visit my linkedin profile"><i class="fab fa-linkedin"></i></a> linkedin.com/in/jill-davidson</p>
 	</footer>
+	<script>
+		var acc = document.getElementsByClassName("accordion");
+		var i;
+
+		for (i = 0; i < acc.length; i++) {
+		  acc[i].addEventListener("click", function() {
+		    /* Toggle between adding and removing the "active" class,
+		    to highlight the button that controls the panel */
+		    this.classList.toggle("active");
+
+		    /* Toggle between hiding and showing the active panel */
+		    var panel = this.nextElementSibling;
+		    if (panel.style.display === "block") {
+		      panel.style.display = "none";
+		    } else {
+		      panel.style.display = "block";
+		    }
+		  });
+		}
+
+		var i = 0;
+		var txt = 'Hi, I\'m Jill!'; /* The text */
+		var speed = 100; /* The speed/duration of the effect in milliseconds */
+
+		function typeWriter() {
+		  if (i < txt.length) {
+		    document.getElementById("typewriter").innerHTML += txt.charAt(i);
+		    i++;
+		    setTimeout(typeWriter, speed);
+		  }
+		}
+
+		typeWriter();
+</script>
 </body>
 </html>
