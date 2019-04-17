@@ -106,7 +106,42 @@ The green sticky notes represent a general flow, the pink are the steps Kara mig
 
 <div class = "pair">
 <h2>Prototyping</h2>
-<p>First, I did a low-fidelity prototype on paper. This made it easy to sketch out my ideas and helped me figure out the best flow of my design. You can view my paper prototype here: https://www.youtube.com/watch?v=KT4sLKZnmGQ.<br>
+<p>First, I did a low-fidelity prototype on paper. This made it easy to sketch out my ideas and helped me figure out the best flow of my design.<br>
+
+<!-- <video width="320" height="240" controls>
+  <source src="images/582_paper_prototype_copy.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video> -->
+
+<div class="player">
+  <video class="player-video" src="images/582_paper_prototype_copy.mp4"></video>
+
+  <div class="player-controls">
+
+    <div class="progress">
+      <div class="filled-progress"></div>
+    </div>
+
+        <div class="ply-btn">
+        <button class="player-btn toggle-play" title="Toggle Play">
+        <svg class="" width="16" height="16" viewBox="0 0 16 16"><title>play</title><path d="M3 2l10 6-10 6z"></path></svg>
+        </button>
+    </div>
+
+    <div class="sliders">
+    <input type="range" name="volume" class="player-slider" min="0" max="1" step="0.05" value="1">
+
+    <input type="range" name="playbackRate" class="player-slider" min="0.5" max="2" step="0.1" value="1">
+    </div>
+
+    <button data-skip="-10" class="player-btn">« 10s</button>
+
+    <button data-skip="10" class="player-btn">10s »</button>
+
+  </div>
+</div>
+
+<br>
 
 My digital prototype was created using Sketch and InVision. I picked Sketch because it is easy to have the same basic layout of the screen and change whichever elements necessary to portray an interaction. Sketch is also quite intuitive for a beginner to learn, making it easier for me to figure out how to make my prototype the way I wanted. InVision is very easy to use and works quite well with Sketch since screens are easily imported and can be updated very quickly when a change is made.  </p>
 
@@ -128,5 +163,66 @@ My digital prototype was created using Sketch and InVision. I picked Sketch beca
 		<p> <i class="fas fa-phone-square" aria-hidden = "true"></i> 248-207-2138</p>
 		<p><a href = https://www.linkedin.com/in/jill-davidson/ aria-label="Visit my linkedin profile"><i class="fab fa-linkedin"></i></a> linkedin.com/in/jill-davidson</p>
 	</footer>
+
+	<script>
+		const player = document.querySelector('.player');
+const video = player.querySelector('.player-video');
+const progress = player.querySelector('.progress');
+const progressFilled = player.querySelector('.filled-progress');
+const toggle = player.querySelector('.toggle-play');
+const skippers = player.querySelectorAll('[data-skip]');
+const ranges = player.querySelectorAll('.player-slider');
+
+// Logic
+function togglePlay() {
+  const playState = video.paused ? 'play' : 'pause';
+  video[playState](); // Call play or paused method
+}
+
+function updateButton() {
+  const togglePlayBtn = document.querySelector('.toggle-play');
+
+  if(this.paused) {
+    togglePlayBtn.innerHTML = `<svg class="" width="16" height="16" viewBox="0 0 16 16"><title>play</title><path d="M3 2l10 6-10 6z"></path></svg>`;
+  } else {
+    togglePlayBtn.innerHTML = `<svg width="16" height="16" viewBox="0 0 16 16"><title>pause</title><path d="M2 2h5v12H2zm7 0h5v12H9z"></path></svg>`;
+  }
+}
+
+function skip() {
+  video.currentTime += parseFloat(this.dataset.skip);
+}
+
+function rangeUpdate() {
+  video[this.name] = this.value;
+}
+
+function progressUpdate() {
+  const percent = (video.currentTime / video.duration) * 100;
+  progressFilled.style.flexBasis = `${percent}%`;
+}
+
+function scrub(e) {
+  const scrubTime = (e.offsetX / progress.offsetWidth) * video.duration;
+  video.currentTime = scrubTime;
+}
+
+// Event listeners
+video.addEventListener('click', togglePlay);
+video.addEventListener('play', updateButton);
+video.addEventListener('pause', updateButton);
+video.addEventListener('timeupdate', progressUpdate);
+
+toggle.addEventListener('click', togglePlay);
+skippers.forEach(button => button.addEventListener('click', skip));
+ranges.forEach(range => range.addEventListener('change', rangeUpdate));
+ranges.forEach(range => range.addEventListener('mousemove', rangeUpdate));
+
+let mousedown = false;
+progress.addEventListener('click', scrub);
+progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
+progress.addEventListener('mousedown', () => mousedown = true);
+progress.addEventListener('mouseup', () => mousedown = false);
+</script>
 </body>
 </html> 
