@@ -22,6 +22,24 @@
 		var randomNumber = Math.floor(Math.random() * (facts.length));
 	  	document.getElementById('randomFact').innerHTML = facts[randomNumber];
 	}
+
+	function checkForm() {
+	  	let message = document.querySelector('#message');
+	  	let msgError = document.querySelector('#msgError')
+	  	let filledMsg = false;
+	  	if (message.value != '') {
+	  		msgError.style.display = 'none';
+	  		filledMsg = true;
+	  	}
+	  	else if (message.value == '') {
+	        msgError.style.display = 'block';
+	        filledName = false;
+      	}
+
+      	if (!filledMsg) {
+      		event.preventDefault();
+      	}
+	  }
 	</script>
 	<meta charset="UTF-8">
 	<link rel="shortcut icon" href="images/logo.png"/>
@@ -29,7 +47,7 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 	<link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet'>
-	<meta name = 'viewport' content='width=device-width', initial-scale='1'>
+	<meta name = 'viewport' content='width=device-width' initial-scale='1'>
 	<title>About</title>
 </head>
 <body>
@@ -91,7 +109,15 @@
 		<p> Contact Me</p>
 		<p> <i class="fas fa-envelope-square" aria-hidden = "true"></i> jilladav@umich.edu</p>
 		<p> <i class="fas fa-phone-square" aria-hidden = "true"></i> 248-207-2138</p>
-		<p><a href = https://www.linkedin.com/in/jill-davidson/ aria-label="Visit my linkedin profile"><i class="fab fa-linkedin"></i></a> linkedin.com/in/jill-davidson</p>
+		<p><a href = https://www.linkedin.com/in/jill-davidson/ aria-label="Visit my linkedin profile"><i class="fab fa-linkedin"></i></a> linkedin.com/in/jill-davidson</p> <br>
+	<form action="#" onsubmit="return checkForm();">
+      <fieldset>
+        <div class = "contactForm">
+          <label for ="message">Input Your Message Here:</label><br>
+          <p class="errormsg" id="msgError">Please enter a message!</p>
+          <textarea name="message" id="message"></textarea>
+          <input type = "submit" class = "button" value = "Send a Message">
+       </div> 
 	</footer>
 <script>
 	// When the user scrolls the page, execute myFunction 
