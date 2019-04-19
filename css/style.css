@@ -9,7 +9,7 @@ nav {
 	top: -3vh;
 	position: relative;
 	/*border-bottom: 0.5vh solid #357CA3;*/
-	z-index: -1:
+	z-index: 1:
 }
 
 a.skip{
@@ -182,6 +182,7 @@ p {
 	align-items: center;
 	margin-right: 5vw;
 	margin-left: 5vw;
+	z-index: -1;
 }
 
 .item {
@@ -309,21 +310,20 @@ p {
 	 margin: 0;
 	 padding: 0;
 }*/
- .player {
+.player {
 	 max-width: 20vw;
 	 border: 6px solid rgba(255, 255, 255, 0.2);
 	 box-shadow: 0 0 25px rgba(0, 0, 0, 0.1), 0 3px 3px rgba(0, 0, 0, 0.1);
 	 position: relative;
 	 overflow: hidden;
-	 z-index: -1;
 }
  .player:hover .progress {
 	 height: 10px;
 }
- .player:hover .player-controls {
+.player:hover .player-controls {
 	 transform: translateY(0);
 }
- .player:-webkit-full-screen, .player:fullscreen {
+.player:-webkit-full-screen, .player:fullscreen {
 	 max-width: none;
 	 width: 100%;
 }
@@ -334,7 +334,7 @@ p {
 	 width: 100%;
 	 display: block;
 }
- .player-btn {
+.player-btn {
 	 background: none;
 	 border: 0;
 	 color: white;
@@ -353,7 +353,7 @@ p {
 	 width: 10px;
 	 height: 30px;
 }
- .player-controls {
+.player-controls {
 	 align-items: center;
 	 display: flex;
 	 position: absolute;
@@ -367,7 +367,7 @@ p {
  .player-controls > * {
 	 flex: 1;
 }
- .progress {
+  .progress {
 	 position: relative;
 	 display: flex;
 	 flex: 10;
@@ -376,13 +376,13 @@ p {
 	 transition: height 0.3s;
 	 background: rgba(0, 0, 0, 0.5);
 }
- .filled-progress {
+  .filled-progress {
 	 width: 50%;
 	 background: #357CA3;
 	 flex: 0;
 	 flex-basis: 50%;
 }
- .sliders {
+  .sliders {
 	 max-width: 200px;
 	 display: flex;
 }
