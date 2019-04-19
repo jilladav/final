@@ -5,7 +5,7 @@ nav {
 	/*padding-bottom: 5vh;*/
 	margin-bottom: 2.5vh;
 	font-size: 20px;
-	background-color: lightgray;
+	background-color: #eee;
 	top: -3vh;
 	position: relative;
 	/*border-bottom: 0.5vh solid #357CA3;*/
@@ -203,7 +203,6 @@ p {
 /* Style the buttons that are used to open and close the accordion panel */
 .accordion {
   background-color: #eee;
-  color: #444;
   font-size: 24px;
   font-family: 'Open Sans';
   color: #357CA3;
@@ -220,6 +219,7 @@ p {
 .active, .accordion:hover, .accordion:focus {
   background-color: #ccc;
 }
+
 
 /* Style the accordion panel. Note: hidden by default */
 .panel {
@@ -283,7 +283,7 @@ p {
 
 /* Change color on mouse-over */
 .closebtn:hover {
-  color: lightgrey;
+  color: #eee;
 }
 
 #randomFact {
@@ -640,7 +640,7 @@ p {
 
 	.current{
 		text-decoration: underline;
-		background-color: lightgray;
+		background-color: #eee;
 		color: #357CA3;
 	}
 }

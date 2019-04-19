@@ -21,15 +21,17 @@
 <body>
 	<a href="#main" class = "skip">Skip to main content</a>
 	<header>
-    <nav>
-        <ul>
-            <li><a href = "index.html" class = "current">Home</a></li>
-            <li><a href = "about.html">About</a></li>
-            <li><a href = "interaction.html">Interaction Design</a></li>
-            <li><a href = "consulting.html">Consulting</a></li>
+	<div id = "navbar">
+	    <nav>
+	        <ul>
+	            <li><a href = "index.html" class = "current">Home</a></li>
+	            <li><a href = "about.html">About</a></li>
+	            <li><a href = "interaction.html">Interaction Design</a></li>
+	            <li><a href = "consulting.html">Consulting</a></li>
 
-        </ul>
-    </nav>
+	        </ul>
+	    </nav>
+	</div>
 
     <h1 id="typewriter"></h1>
 </header>
@@ -111,6 +113,23 @@
 		}
 
 		typeWriter();
+
+			// When the user scrolls the page, execute myFunction 
+	window.onscroll = function() {myFunction()};
+
+	// Get the navbar
+	var navbar = document.getElementById("navbar");
+	// Get the offset position of the navbar
+	var sticky = navbar.offsetTop;
+
+	// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+	function myFunction() {
+	  if (window.pageYOffset >= sticky) {
+	    navbar.classList.add("sticky")
+	  } else {
+	    navbar.classList.remove("sticky");
+	  }
+	}
 </script>
 </body>
 </html>

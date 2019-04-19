@@ -22,15 +22,17 @@
 <body>
 	<a href="#main" class = "skip">Skip to main content</a>
 	<header>
-    <nav>
-        <ul>
-            <li><a href = "index.html">Home</a></li>
-            <li><a href = "about.html">About</a></li>
-            <li><a href = "interaction.html">Interaction Design</a></li>
-            <li><a href = "consulting.html" class = "current">Consulting</a></li>
+	<div id = "navbar">
+	    <nav>
+	        <ul>
+	            <li><a href = "index.html">Home</a></li>
+	            <li><a href = "about.html">About</a></li>
+	            <li><a href = "interaction.html">Interaction Design</a></li>
+	            <li><a href = "consulting.html" class = "current">Consulting</a></li>
 
-        </ul>
-    </nav>
+	        </ul>
+	    </nav>
+	</div>
 
     <h1>Contextual Inquiry: Information Organization</h1>
 
@@ -113,6 +115,24 @@ After the interviews, our team held interpretation sessions for each interview a
 		<p> <i class="fas fa-phone-square" aria-hidden = "true"></i> 248-207-2138</p>
 		<p><a href = https://www.linkedin.com/in/jill-davidson/ aria-label="Visit my linkedin profile"><i class="fab fa-linkedin"></i></a> linkedin.com/in/jill-davidson</p>
 	</footer>
+<script>
+	// When the user scrolls the page, execute myFunction 
+	window.onscroll = function() {myFunction()};
+
+	// Get the navbar
+	var navbar = document.getElementById("navbar");
+	// Get the offset position of the navbar
+	var sticky = navbar.offsetTop;
+
+	// Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
+	function myFunction() {
+	  if (window.pageYOffset >= sticky) {
+	    navbar.classList.add("sticky")
+	  } else {
+	    navbar.classList.remove("sticky");
+	  }
+	}
+</script>
 </body>
 
 </html>
