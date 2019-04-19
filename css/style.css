@@ -64,6 +64,10 @@ nav li {
 	display: inline;
 }
 
+legend {
+	text-align: center;
+}
+
 .consulting ul {
 	line-height: 1.5em;
 	margin-bottom: 2vh;
@@ -445,6 +449,7 @@ p {
 .contactForm {
 	display: grid;
 	justify-content: center;
+	text-align: center;
 }
 
 .contactForm .button {
