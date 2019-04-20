@@ -111,6 +111,7 @@
        </form>     
 	</footer>
 	<script>
+		//from https://www.w3schools.com/howto/howto_js_accordion.asp
 		var acc = document.getElementsByClassName("accordion");
 		var i;
 
@@ -134,6 +135,7 @@
 		var txt = 'Hi, I\'m Jill!'; /* The text */
 		var speed = 100; /* The speed/duration of the effect in milliseconds */
 
+		//from https://www.w3schools.com/howto/howto_js_typewriter.asp
 		function typeWriter() {
 		  if (i < txt.length) {
 		    document.getElementById("typewriter").innerHTML += txt.charAt(i);
@@ -144,7 +146,8 @@
 
 		typeWriter();
 
-			// When the user scrolls the page, execute myFunction 
+	//from https://www.w3schools.com/howto/howto_js_navbar_sticky.asp
+	// When the user scrolls the page, execute myFunction 
 	window.onscroll = function() {myFunction()};
 
 	// Get the navbar

@@ -21,7 +21,6 @@
 	        msgError.style.display = 'block';
 	        filledName = false;
       	}
-
       	if (!filledMsg) {
       		event.preventDefault();
       	}
@@ -191,6 +190,8 @@ My interactive final prototype can be found here: https://projects.invisionapp.c
 	</footer>
 
 	<script>
+
+//from https://web-crunch.com/lets-build-with-javascript-html5-video-player/
 		const player = document.querySelector('.player');
 const video = player.querySelector('.player-video');
 const progress = player.querySelector('.progress');
@@ -250,6 +251,7 @@ progress.addEventListener('mousemove', (e) => mousedown && scrub(e));
 progress.addEventListener('mousedown', () => mousedown = true);
 progress.addEventListener('mouseup', () => mousedown = false);
 
+//from https://www.w3schools.com/howto/howto_js_navbar_sticky.asp
 // When the user scrolls the page, execute myFunction 
 	window.onscroll = function() {myFunction()};
 
